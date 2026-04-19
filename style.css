@@ -8,13 +8,13 @@ body {
 }
 
 ::selection {
-    background-color: #06b6d4;
+    background-color: #0693d4;
     color: white;
 }
 
 /* ===== FUNDO GRADIENTE ANIMADO ===== */
 .bg-animated-gradient {
-    background: linear-gradient(135deg, #050505 0%, #0a0a1a 25%, #0d0520 50%, #050d1a 75%, #050505 100%);
+    background: linear-gradient(135deg, #050505 55%, #0a0a1a 80%, #0d0520 100%, #050d1a 95%, #050505 100%);
     background-size: 400% 400%;
     animation: gradientShift 8s ease infinite;
 }
