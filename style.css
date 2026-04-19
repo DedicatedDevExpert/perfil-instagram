@@ -72,7 +72,7 @@ body {
     min-height: 100vh;
     position: relative;
     z-index: 10;
-    padding: 3rem 1.25rem;
+    padding: 3rem 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,13 +101,14 @@ body {
 
 .avatar-ring {
     position: absolute;
-    inset: 0;
+    inset: -3px;
     border-radius: 9999px;
-    background: linear-gradient(to top right, #22d3ee, #a855f7, transparent);
+    background: conic-gradient(from 0deg, #22d3ee, #a855f7, #22d3ee);
     animation: spin-slow 4s linear infinite;
-    filter: blur(2px);
-    opacity: 0.8;
+    opacity: 0.9;
     transition: opacity 0.3s;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .avatar-wrapper:hover .avatar-ring {
