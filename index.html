@@ -4,143 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link na Bio | Premium Dark Mode</title>
-    
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuração do Tailwind (Cores Personalizadas e Animações) -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        deep: '#050505',
-                    },
-                    animation: {
-                        'spin-slow': 'spin 4s linear infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Fontes (Inter para um visual moderno e limpo) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-deep text-white overflow-x-hidden min-h-screen relative selection:bg-cyan-500 selection:text-white">
+<body class="bg-animated-gradient">
+
+    <!-- Imagem de Fundo -->
+    <img src="imagem/eu.png" alt="" class="bg-image">
 
     <!-- Luzes de Fundo (Glows Volumétricos) -->
-    <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="fixed top-[10%] right-[-10%] w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="glow-cyan"></div>
+    <div class="glow-purple"></div>
 
     <!-- Container Principal -->
-    <main class="max-w-md mx-auto w-full min-h-screen relative z-10 px-5 py-12 flex flex-col items-center">
+    <main class="main-container">
         
         <!-- ================= PERFIL ================= -->
-        <header class="flex flex-col items-center w-full mb-10 text-center">
+        <header class="profile-header">
             
             <!-- Foto com Borda Animada -->
-            <div class="relative w-28 h-28 flex items-center justify-center mb-5 group">
-                <!-- Gradiente Giratório -->
-                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 via-purple-500 to-transparent animate-spin-slow blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity"></div>
-                <!-- Máscara de Fundo Escuro -->
-                <div class="absolute inset-[3px] bg-deep rounded-full z-0"></div>
-                <!-- Imagem -->
-                <img src="https://placehold.co/400x400/1a1a1a/FFFFFF?text=Foto" alt="Foto de Perfil" class="relative z-10 w-full h-full object-cover rounded-full border-2 border-transparent">
-            </div>
+            <div class="avatar-wrapper">
+                <div class="avatar-ring"></div>
+                <div class="avatar-mask"></div>
+                <img src="./imagem/eudois.png " style="width: 100px; height:100px;" alt="Foto de Perfil" class="avatar-img">
+            </div>\
 
-            <h1 class="text-2xl font-bold tracking-tight text-gray-50">Alexandre UI/UX</h1>
-            <p class="text-sm font-medium text-gray-400 mt-1">Especialista em Design & Front-End</p>
+            <h1 class="profile-name">Marcos Oliveira</h1>
+            <p class="profile-bio">Especialista em Automação de Processos</p>
         </header>
 
         <!-- ================= LINKS / BOTÕES ================= -->
-        <section class="w-full flex flex-col gap-4">
+        <section class="cards-section">
             
             <!-- CARD 1 -->
-            <a href="#" class="group flex items-stretch p-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]">
-                <!-- Lado Esquerdo (Texto e Ação) -->
-                <div class="flex-1 pr-4 flex flex-col justify-center py-1 pl-2">
-                    <h2 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition-colors">Portfólio Interativo</h2>
-                    <p class="text-xs text-gray-400 mt-1.5 line-clamp-2">Veja meus últimos projetos de design e desenvolvimento em alta resolução.</p>
-                    <span class="mt-3 flex items-center gap-1.5 text-xs font-bold text-cyan-500 uppercase tracking-widest">
-                        Acessar 
-                        <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <a href="#" class="card card--cyan">
+                <div class="card-body">
+                    <h2 class="card-title">Portfólio Interativo</h2>
+                    <p class="card-desc">Veja meus últimos projetos de design e desenvolvimento em alta resolução.</p>
+                    <span class="card-cta card-cta--cyan">
+                        Acessar
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </span>
                 </div>
-                <!-- Lado Direito (Imagem Ilustrativa Fixa) -->
-                <div class="w-24 h-24 flex-shrink-0">
-                    <img src="https://placehold.co/200x200/222/6366f1?text=Portfólio" alt="Thumbnail Portfólio" class="w-full h-full object-cover rounded-xl border border-white/5 group-hover:border-cyan-500/20 transition-colors">
+                <div class="card-thumb">
+                    <img src="https://placehold.co/200x200/222/6366f1?text=Portfólio" alt="Thumbnail Portfólio">
                 </div>
             </a>
 
             <!-- CARD 2 -->
-            <a href="#" class="group flex items-stretch p-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-purple-500/40 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)]">
-                <!-- Lado Esquerdo (Texto e Ação) -->
-                <div class="flex-1 pr-4 flex flex-col justify-center py-1 pl-2">
-                    <h2 class="text-base font-bold text-gray-100 group-hover:text-purple-400 transition-colors">Masterclass de UI</h2>
-                    <p class="text-xs text-gray-400 mt-1.5 line-clamp-2">Aprenda a criar interfaces que convertem mais e encantam usuários.</p>
-                    <span class="mt-3 flex items-center gap-1.5 text-xs font-bold text-purple-500 uppercase tracking-widest">
-                        Inscreva-se 
-                        <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <a href="#" class="card card--purple">
+                <div class="card-body">
+                    <h2 class="card-title">Masterclass de UI</h2>
+                    <p class="card-desc">Aprenda a criar interfaces que convertem mais e encantam usuários.</p>
+                    <span class="card-cta card-cta--purple">
+                        Inscreva-se
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </span>
                 </div>
-                <!-- Lado Direito (Imagem Ilustrativa Fixa) -->
-                <div class="w-24 h-24 flex-shrink-0">
-                    <img src="https://placehold.co/200x200/222/a855f7?text=Curso" alt="Thumbnail Curso" class="w-full h-full object-cover rounded-xl border border-white/5 group-hover:border-purple-500/20 transition-colors">
+                <div class="card-thumb">
+                    <img src="https://placehold.co/200x200/222/a855f7?text=Curso" alt="Thumbnail Curso">
                 </div>
             </a>
 
             <!-- CARD 3 -->
-            <a href="#" class="group flex items-stretch p-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]">
-                <!-- Lado Esquerdo (Texto e Ação) -->
-                <div class="flex-1 pr-4 flex flex-col justify-center py-1 pl-2">
-                    <h2 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition-colors">Último Vídeo</h2>
-                    <p class="text-xs text-gray-400 mt-1.5 line-clamp-2">Assista ao review completo do novo framework lançado na última semana.</p>
-                    <span class="mt-3 flex items-center gap-1.5 text-xs font-bold text-cyan-500 uppercase tracking-widest">
-                        Assistir 
-                        <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <a href="#" class="card card--cyan">
+                <div class="card-body">
+                    <h2 class="card-title">Último Vídeo</h2>
+                    <p class="card-desc">Assista ao review completo do novo framework lançado na última semana.</p>
+                    <span class="card-cta card-cta--cyan">
+                        Assistir
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </span>
                 </div>
-                <!-- Lado Direito (Imagem Ilustrativa Fixa) -->
-                <div class="w-24 h-24 flex-shrink-0">
-                    <img src="https://placehold.co/200x200/222/06b6d4?text=Video" alt="Thumbnail Vídeo" class="w-full h-full object-cover rounded-xl border border-white/5 group-hover:border-cyan-500/20 transition-colors">
+                <div class="card-thumb">
+                    <img src="https://placehold.co/200x200/222/06b6d4?text=Video" alt="Thumbnail Vídeo">
                 </div>
             </a>
 
         </section>
 
         <!-- ================= RODAPÉ (Redes Sociais) ================= -->
-        <footer class="mt-auto pt-14 pb-4 flex items-center justify-center gap-6">
+        <footer class="social-footer">
+
             <!-- Instagram -->
-            <a href="#" class="text-gray-400 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <a href="#" class="social-link" aria-label="Instagram">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
                 </svg>
             </a>
-            
+
             <!-- X / Twitter -->
-            <a href="#" class="text-gray-400 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <a href="#" class="social-link" aria-label="X / Twitter">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                 </svg>
             </a>
 
             <!-- LinkedIn -->
-            <a href="#" class="text-gray-400 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <a href="#" class="social-link" aria-label="LinkedIn">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
                 </svg>
             </a>
 
             <!-- E-mail -->
-            <a href="#" class="text-gray-400 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <a href="#" class="social-link" aria-label="E-mail">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
             </a>
+
         </footer>
 
     </main>
