@@ -62,6 +62,51 @@ code index.html
 
 ---
 
+## 🐛 Problemas Enfrentados e Soluções
+
+### 1. Animação do avatar sumindo no scroll (mobile)
+**Problema:** Ao rolar a página no celular, a animação giratória em volta da foto de perfil sumia ou cobria a imagem.
+
+**Causa:** Conflito de `z-index` entre as camadas `.avatar-ring`, `.avatar-mask` e `.avatar-img`, combinado com o `translateZ(0)` definido diretamente no elemento sendo sobrescrito pelo `@keyframes` que animava apenas o `rotate`.
+
+**Solução:** Definição explícita de `z-index` em cascata (`ring: 0`, `mask: 1`, `img: 2`) e inclusão do `translateZ(0)` dentro do próprio `@keyframes` para não ser perdido durante a animação.
+
+---
+
+### 2. Animação do anel não visível no mobile
+**Problema:** O efeito de borda giratória com `linear-gradient` e `filter: blur` não era renderizado corretamente em browsers mobile.
+
+**Causa:** Browsers mobile têm suporte limitado a `filter: blur` em elementos com `transform` animado.
+
+**Solução:** Substituição do `linear-gradient` + `blur` por `conic-gradient` sem blur, que tem compatibilidade nativa com mobile e produz o mesmo efeito visual de arco colorido girando.
+
+---
+
+### 3. Barra de scroll horizontal indesejada
+**Problema:** Uma pequena barra de rolagem horizontal aparecia na página.
+
+**Causa:** Elementos com `position: fixed` e dimensões maiores que a viewport (`.bg-image` com `height: 160%` e os glows posicionados fora da tela) causavam overflow horizontal.
+
+**Solução:** Adição de `overflow-x: hidden` tanto no `html` quanto no `body`.
+
+---
+
+### 4. CSS inline misturado ao HTML
+**Problema:** Todo o CSS estava embutido via classes utilitárias do Tailwind diretamente nas tags HTML, dificultando manutenção.
+
+**Solução:** Migração completa para um arquivo `style.css` externo com classes semânticas, removendo a dependência do Tailwind CDN.
+
+---
+
+### 5. Imagens dos cards não carregavam
+**Problema:** Os cards exibiam apenas placeholders cinzas sem imagem real.
+
+**Causa:** As URLs do `placehold.co` dependem de serviço externo e não representam conteúdo visual relevante.
+
+**Solução:** Substituição por imagens reais e temáticas do Unsplash via URL direta, sem necessidade de download local.
+
+---
+
 ## 👤 Autor
 
 **Marcos Oliveira**  
